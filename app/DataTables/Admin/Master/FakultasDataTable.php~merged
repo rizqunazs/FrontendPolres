@@ -1,0 +1,196 @@
+<?php
+
+<<<<<<< HEAD
+namespace App\DataTables\Admin\Master;
+
+use App\Models\Agama;
+use App\Models\Fakultas;
+=======
+namespace App\DataTables\Admin;
+
+<<<<<<< HEAD:app/DataTables/Admin/MahasiswaDatatable.php
+use App\Models\Mahasiswa;
+=======
+use App\Models\Agama;
+use App\Models\Fakultas;
+>>>>>>> 98a06039d1f0d4a144340f79406fcc42a4153ecb:app/DataTables/Admin/Master/FakultasDataTable.php
+>>>>>>> 98a06039d1f0d4a144340f79406fcc42a4153ecb
+use Yajra\DataTables\Html\Button;
+use Yajra\DataTables\Html\Column;
+use Yajra\DataTables\Html\Editor\Editor;
+use Yajra\DataTables\Html\Editor\Fields;
+use Yajra\DataTables\Services\DataTable;
+
+<<<<<<< HEAD
+class FakultasDataTable extends DataTable
+=======
+<<<<<<< HEAD:app/DataTables/Admin/MahasiswaDatatable.php
+class MahasiswaDatatable extends DataTable
+=======
+class FakultasDataTable extends DataTable
+>>>>>>> 98a06039d1f0d4a144340f79406fcc42a4153ecb:app/DataTables/Admin/Master/FakultasDataTable.php
+>>>>>>> 98a06039d1f0d4a144340f79406fcc42a4153ecb
+{
+    /**
+     * Build DataTable class.
+     *
+     * @param mixed $query Results from query() method.
+     * @return \Yajra\DataTables\DataTableAbstract
+     */
+    public function dataTable($query)
+    {
+        return datatables()
+            ->eloquent($query)
+            ->setRowId(function ($row) {
+                return $row->id;
+            })
+<<<<<<< HEAD
+            ->addColumn('action', function ($row) {
+                $btn = '<div class="btn-group">';
+                $btn = $btn . '<a href="' . route('admin.master-data.fakultas.edit', $row->id) . '" class="btn btn-dark buttons-edit"><i class="fas fa-edit"></i></a>';
+                $btn = $btn . '<a href="' . route('admin.master-data.fakultas.destroy', $row->id) . '" class="btn btn-danger buttons-delete"><i class="fas fa-trash fa-fw"></i></a>';
+                $btn = $btn . '</div>';
+
+                return $btn;
+            });
+=======
+          
+            ->addColumn('action',function($row){
+                $btn = '<div class="btn-group">';
+<<<<<<< HEAD:app/DataTables/Admin/MahasiswaDatatable.php
+                $btn = $btn . '<a href="' . route('admin.mahasiswa.edit', $row->id) . '" class="btn btn-dark buttons-edit"><i class="fas fa-edit"></i></a>';
+                $btn = $btn . '<a href="' . route('admin.mahasiswa.destroy', $row->id) . '" class="btn btn-danger buttons-delete"><i class="fas fa-trash fa-fw"></i></a>';
+=======
+                $btn = $btn . '<a href="' . route('admin.master-data.fakultas.edit', $row->id) . '" class="btn btn-dark buttons-edit"><i class="fas fa-edit"></i></a>';
+                $btn = $btn . '<a href="' . route('admin.master-data.fakultas.destroy', $row->id) . '" class="btn btn-danger buttons-delete"><i class="fas fa-trash fa-fw"></i></a>';
+>>>>>>> 98a06039d1f0d4a144340f79406fcc42a4153ecb:app/DataTables/Admin/Master/FakultasDataTable.php
+                $btn = $btn . '</div>';
+                return $btn;
+                 
+            });
+                
+>>>>>>> 98a06039d1f0d4a144340f79406fcc42a4153ecb
+    }
+
+    /**
+     * Get query source of dataTable.
+     *
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:app/DataTables/Admin/MahasiswaDatatable.php
+     * @param \App\App\Models\MahasiswaDatatable $model
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function query(Mahasiswa $model)
+=======
+>>>>>>> 98a06039d1f0d4a144340f79406fcc42a4153ecb
+     * @param \Fakultas $model
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function query(Fakultas $model)
+<<<<<<< HEAD
+=======
+>>>>>>> 98a06039d1f0d4a144340f79406fcc42a4153ecb:app/DataTables/Admin/Master/FakultasDataTable.php
+>>>>>>> 98a06039d1f0d4a144340f79406fcc42a4153ecb
+    {
+        return $model->newQuery();
+    }
+
+    /**
+     * Optional method if you want to use html builder.
+     *
+     * @return \Yajra\DataTables\Html\Builder
+     */
+    public function html()
+    {
+        return $this->builder()
+<<<<<<< HEAD
+            ->setTableId('fakultasdatatable-table')
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            ->dom('<"dataTables_wrapper dt-bootstrap"B<"row"<"col-xl-7 d-block d-sm-flex d-xl-block justify-content-center"<"d-block d-lg-inline-flex"l>><"col-xl-5 d-flex d-xl-block justify-content-center"fr>>t<"row"<"col-sm-5"i><"col-sm-7"p>>>')
+            ->orderBy(1)
+=======
+<<<<<<< HEAD:app/DataTables/Admin/MahasiswaDatatable.php
+            ->setTableId('mahasiswadatatable-table')
+=======
+            ->setTableId('fakultasdatatable-table')
+>>>>>>> 98a06039d1f0d4a144340f79406fcc42a4153ecb:app/DataTables/Admin/Master/FakultasDataTable.php
+            ->columns($this->getColumns())
+         
+            ->minifiedAjax()
+            ->dom('<"dataTables_wrapper dt-bootstrap"B<"row"<"col-xl-7 d-block d-sm-flex d-xl-block justify-content-center"<"d-block d-lg-inline-flex"l>><"col-xl-5 d-flex d-xl-block justify-content-center"fr>>t<"row"<"col-sm-5"i><"col-sm-7"p>>>')
+            ->orderBy(1)
+            // ->scrollX(true)
+            //->parameters(['scrollX' => true])
+            //->parameters(scrollX:true)
+>>>>>>> 98a06039d1f0d4a144340f79406fcc42a4153ecb
+            ->buttons(
+                Button::make('create'),
+                Button::make('export'),
+                Button::make('print'),
+                Button::make('reset'),
+                Button::make('reload')
+            );
+    }
+
+    /**
+     * Get columns.
+     *
+     * @return array
+     */
+    protected function getColumns()
+    {
+        return [
+            Column::computed('action')
+                ->exportable(false)
+                ->printable(false)
+                ->width(60)
+                ->addClass('text-center'),
+<<<<<<< HEAD
+            Column::make('kode_fakultas'),
+            Column::make('fakultas'),
+        ];
+    }
+
+=======
+<<<<<<< HEAD:app/DataTables/Admin/MahasiswaDatatable.php
+            Column::make('user_id'),
+            Column::make('nama'),
+            Column::make('email'),
+            Column::make('hp'),
+            Column::make('jurusan'),
+            Column::make('status'),
+            Column::make('foto')
+          
+=======
+            Column::make('kode_fakultas'),
+            Column::make('fakultas'),
+>>>>>>> 98a06039d1f0d4a144340f79406fcc42a4153ecb:app/DataTables/Admin/Master/FakultasDataTable.php
+        ];
+    }
+
+
+
+>>>>>>> 98a06039d1f0d4a144340f79406fcc42a4153ecb
+    /**
+     * Get filename for export.
+     *
+     * @return string
+     */
+    protected function filename()
+    {
+<<<<<<< HEAD
+        return 'MasterFakultas_' . date('YmdHis');
+    }
+=======
+<<<<<<< HEAD:app/DataTables/Admin/MahasiswaDatatable.php
+        return 'Mahasiswa_' . date('YmdHis');
+=======
+        return 'MasterFakultas_' . date('YmdHis');
+>>>>>>> 98a06039d1f0d4a144340f79406fcc42a4153ecb:app/DataTables/Admin/Master/FakultasDataTable.php
+    }
+
+    
+>>>>>>> 98a06039d1f0d4a144340f79406fcc42a4153ecb
+}
